@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trading Journal - Fibonacci Calculator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>📊 Trading Journal</h1>
+            <p class="subtitle">Fibonacci Retracement & Extension Calculator</p>
+        </header>
+
+        <div class="main-content">
+            <!-- Input Section -->
+            <div class="card input-section">
+                <h2>Input Price Range</h2>
+                <form id="fibForm">
+                    <div class="form-group">
+                        <label for="highPrice">High Price:</label>
+                        <input type="number" id="highPrice" step="0.00000001" placeholder="Masukkan harga tertinggi" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="lowPrice">Low Price:</label>
+                        <input type="number" id="lowPrice" step="0.00000001" placeholder="Masukkan harga terendah" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="trendType">Trend Direction:</label>
+                        <select id="trendType" required>
+                            <option value="uptrend">Uptrend (Bullish)</option>
+                            <option value="downtrend">Downtrend (Bearish)</option>
+                        </select>
+                    </div>
+
+                    <button type="submit" class="btn-calculate">Hitung Fibonacci</button>
+                    <button type="button" id="resetBtn" class="btn-reset">Reset</button>
+                </form>
+            </div>
+
+            <!-- Results Section -->
+            <div id="resultsSection" class="results-section" style="display: none;">
+                <!-- Range Info -->
+                <div class="card range-info">
+                    <h3>Range Information</h3>
+                    <div class="info-grid">
+                        <div class="info-item">
+                            <span class="label">High:</span>
+                            <span class="value" id="displayHigh">-</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="label">Low:</span>
+                            <span class="value" id="displayLow">-</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="label">Range:</span>
+                            <span class="value" id="displayRange">-</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="label">Trend:</span>
+                            <span class="value" id="displayTrend">-</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Fibonacci Retracement Levels -->
+                <div class="card">
+                    <h3>🔽 Fibonacci Retracement Levels</h3>
+                    <div class="table-container">
+                        <table id="retracementTable">
+                            <thead>
+                                <tr>
+                                    <th>Level</th>
+                                    <th>Price</th>
+                                    <th>Position</th>
+                                    <th>Rekomendasi</th>
+                                </tr>
+                            </thead>
+                            <tbody id="retracementBody">
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Fibonacci Extension Levels -->
+                <div class="card">
+                    <h3>🔼 Fibonacci Extension Levels</h3>
+                    <div class="table-container">
+                        <table id="extensionTable">
+                            <thead>
+                                <tr>
+                                    <th>Level</th>
+                                    <th>Price</th>
+                                    <th>Position</th>
+                                    <th>Target</th>
+                                </tr>
+                            </thead>
+                            <tbody id="extensionBody">
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Trading Recommendations -->
+                <div class="card recommendations">
+                    <h3>💡 Trading Recommendations</h3>
+                    <div id="recommendationsContent"></div>
+                </div>
+
+                <!-- Journal Entry -->
+                <div class="card journal-entry">
+                    <h3>📝 Journal Entry (Optional)</h3>
+                    <textarea id="journalNotes" placeholder="Tulis catatan trading Anda di sini..."></textarea>
+                    <button id="saveJournalBtn" class="btn-save">Simpan ke Journal</button>
+                    <div id="savedEntries"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
